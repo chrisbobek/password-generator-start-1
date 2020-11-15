@@ -22,19 +22,22 @@ password = ""
 
 for i in range(0, nr_letters):
   rando = random.randint(0, len(letters) - 1)
-  print(f"letters: {rando}")
   passwordList.append(letters[rando])
+# Angela Yu uses this 👇 approach:
+# for char in range(1, nr_letters + 1):
+#   password += random.choice(letters)
 
 for i in range(0, nr_symbols):
   rando = random.randint(0, len(symbols) - 1)
-  print(f"symbols: {rando}")
-  passwordList.append(symbols[rando])
+  # passwordList.append(symbols[rando])
+  passwordList.append(random.choice(symbols)) # Angela Yu's approach
 
 for i in range(0, nr_numbers):
-  rando = random.randint(0, len(numbers) - 1)
-  print(f"numbers: {rando}")
-  passwordList.append(numbers[rando])
+  # rando = random.randint(0, len(numbers) - 1)
+  # passwordList.append(numbers[rando])
+  passwordList.append(random.choice(numbers)) # Angela Yu's approach
 
+#print(f"passwordList (pre-shuffle): {passwordList}")
+random.shuffle(passwordList)
 password = passwordStr.join(passwordList)
-print(passwordList)
 print(password)
